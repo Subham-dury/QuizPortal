@@ -1,0 +1,20 @@
+<mat-card style="max-height: 85vh; overflow-y:scroll;">
+    <mat-action-list style="align-items: left;">
+
+        <div style="margin-left: 20px;">
+            <h3>Menu</h3>
+        </div>
+        <button mat-list-item class="modmargin" [routerLink]="['/user']" routerLinkActive="router-link-active" >
+                    <mat-icon mat-list-icon class="marginright">home</mat-icon> Home
+        </button>
+        <button mat-list-item class="modmargin" *ngFor="let category of categories" [routerLink]="'/user/quiz/'+category.cid">
+            <mat-icon mat-list-icon class="marginright" >list</mat-icon>{{category.title}}
+        </button>
+        
+        <button mat-list-item class="modmargin">
+            <mat-icon mat-list-icon class="marginright" >logout</mat-icon> Logout
+        </button>
+    </mat-action-list>
+
+
+</mat-card>

@@ -1,0 +1,13 @@
+.button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.button-container button{
+    padding: 8px;
+    width: 150px;
+}
+
+:host ::ng-deep .ck-editor__editable_inline { min-height: 100px; }

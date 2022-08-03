@@ -1,0 +1,10 @@
+.modmargin{
+    margin: 8px 0;
+    font-size: .9rem;
+    word-wrap: break-word;
+}
+
+.marginright {
+    margin-right: 3px;
+    margin-left: -20px
+}

@@ -1,0 +1,63 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Quiz Form</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <form (ngSubmit)="addQuiz()" #addquizform="ngForm">
+                        <mat-form-field style="width: 100%" appearance="outline">
+                            <mat-label>Title</mat-label>
+                            <input type="text" name="title" matInput placeholder="Enter the title" ngModel required />
+                        </mat-form-field>
+                        <mat-form-field style="width: 100%" appearance="outline">
+                            <mat-label>Description</mat-label>
+                            <textarea matInput placeholder="Enter the description" rows="3" name="description" ngModel
+                                required></textarea>
+                        </mat-form-field>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field style="width: 100%" appearance="outline">
+                                    <mat-label>Maximum marks</mat-label>
+                                    <input type="number" name="maxmarks" matInput
+                                        placeholder="Enter the maximum marks for a quiz" ngModel required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field style="width: 100%" appearance="outline">
+                                    <mat-label>Number of questions</mat-label>
+                                    <input type="number" name="numberOfQuestions" matInput
+                                        placeholder="Enter the number of questions" ngModel required />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                
+                                <mat-form-field appearance="outline" style="width: 100%">
+                                    <mat-label>Category</mat-label>
+                                    <mat-select name="category" ngModel>
+                                        <mat-option *ngFor="let category of categories" [value]="category" >
+                                            {{category.title}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                <mat-slide-toggle name="active" ngModel class="example-margin my-3 mx-3" [checked]="false" color="primary">
+                                    Active
+                                </mat-slide-toggle>
+                            </div>
+                        </div>
+                        <div class="container" class="button-container my-3">
+                            <button type="button submit" class="btn btn-dark btn-sm" [disabled]="!addquizform.valid">Add</button>
+                            <button type="button" class="btn btn-secondary btn-sm" (click)="clearform()">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

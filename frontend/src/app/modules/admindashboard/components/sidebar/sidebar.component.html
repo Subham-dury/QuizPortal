@@ -1,0 +1,31 @@
+<mat-card>
+    <mat-action-list style="align-items: left;">
+
+        <div style="margin-left: 20px;">
+            <h3>Menu</h3>
+        </div>
+        <button mat-list-item class="modmargin" [routerLink]="['/admin']" routerLinkActive="router-link-active" >
+                    <mat-icon mat-list-icon class="marginright">home</mat-icon> Home
+        </button>
+        <button mat-list-item routerLink="/admin/profile" class="modmargin">
+            <mat-icon mat-list-icon class="marginright" >account_circle</mat-icon> Profile
+        </button>
+        <button mat-list-item routerLink="/admin/categories" class="modmargin">
+            <mat-icon mat-list-icon class="marginright" >list</mat-icon>Categories
+        </button>
+        <button mat-list-item routerLink="/admin/add-category" class="modmargin">
+            <mat-icon mat-list-icon class="marginright" >add_circle_outline</mat-icon>Add Category
+        </button>
+        <button mat-list-item routerLink="/admin/quizzes" class="modmargin">
+            <mat-icon mat-list-icon class="marginright" >quiz</mat-icon> Quizzes
+        </button>
+        <button mat-list-item routerLink="/admin/add-quiz" class="modmargin">
+            <mat-icon mat-list-icon class="marginright" >add</mat-icon> Add Quiz
+        </button>
+        <button mat-list-item (click)="logout()" class="modmargin">
+            <mat-icon mat-list-icon class="marginright" >logout</mat-icon> Logout
+        </button>
+    </mat-action-list>
+
+
+</mat-card>

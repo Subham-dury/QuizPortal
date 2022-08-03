@@ -1,0 +1,65 @@
+<div class="bootstrap-wrapper">
+    <div class="container" style="overflow-y: hidden">
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <img src="../../../../../assets/technology.png" alt="" />
+      </div>
+
+        <div class="col-md-6 my-5">
+
+           <mat-card> 
+          <h1>Login Here</h1>
+            
+          <form (ngSubmit)="loginUser()" #loginform="ngForm">
+            <!-- username -->
+            <mat-form-field appearance="outline" class="widthfull">
+              <mat-label>Username</mat-label>
+              <input
+                matInput
+                placeholder="Please enter your username"
+                name="username"
+                ngModel required
+              />
+            </mat-form-field>
+  
+           
+            
+            <!-- password -->
+            <mat-form-field appearance="outline" class="widthfull">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                [type]="hide ? 'password' : 'text'"
+                placeholder="Please enter your password"
+                name="password" required
+                ngModel
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                
+              </button>
+            </mat-form-field>
+  
+            <div class="container" class="button-container">
+              <button type="button submit" class="btn btn-dark btn-lg" [disabled]="!loginform.valid">
+                Login
+              </button>
+              <button type="button" class="btn btn-secondary btn-lg" (click)="clearform()">
+                Clear
+              </button>
+            </div>
+          </form>
+        </mat-card>
+        </div>
+        
+       
+      </div>
+    
+    </div>
+  </div>
+  

@@ -1,0 +1,36 @@
+.profile {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.head {
+    max-height: 150px;
+    margin-top: -40px;
+}
+
+.text-center {
+   justify-content: center;
+}
+
+.table{
+    width: 100%;
+    box-shadow: 3px 5px 8px #bdbdbd;
+    
+}
+
+.table tr td {
+    padding: 13px 15px;
+    border: .5px solid #e2e2e2;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.button-container button{
+    padding: 8px;
+    width: 8rem;
+}

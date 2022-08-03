@@ -1,0 +1,75 @@
+<mat-card class="mb-2">
+    
+    <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <mat-card-header class="mt-1">
+            <mat-card-title >Topic - {{qtitle}}</mat-card-title>
+        </mat-card-header>
+        <div>
+            <button type="button" class="btn btn-primary btn-sm mx-3 my-2" [routerLink]="'/admin/quizzes'">
+                Back
+              </button>
+            <button type="button" class="btn btn-dark btn-sm mx-3 my-2" [routerLink]="'/admin/add-question/'+qid+'/'+qtitle">
+                Add new question
+              </button>
+        </div>
+    </div>
+</mat-card>
+<div class="container" style="max-height: 70vh; overflow-y:scroll;">
+   
+    <mat-card class="mb-2" *ngFor="let question of questions; let i = index">
+        <mat-card-content>
+            <div class="bootstrap-wrapper">
+                <div class="row">
+                    <p>
+                        <b>{{i+1}})</b>
+                        <span class="mx-2" [innerHTML]="question.content" style="overflow-wrap: break-word;"></span>
+                    </p>
+                    
+                    
+                </div>
+                <mat-divider></mat-divider>
+                <p class="my-2"><b>Options :</b></p>
+                <div class="row mx-2 my-1">
+                
+                    <div class="col-md-6">
+                        <p>
+                            <b>1)</b>
+                            <span class="mx-2" [innerHTML]="question.option1" style="overflow-wrap: break-word;"></span>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            <b>2)</b>
+                            <span class="mx-2" [innerHTML]="question.option2" style="overflow-wrap: break-word;"></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="row mx-2 my-1">
+                
+                    <div class="col-md-6">
+                        <p>
+                            <b>3)</b>
+                            <span class="mx-2" [innerHTML]="question.option3" style="overflow-wrap: break-word;"></span>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            <b>4)</b>
+                            <span class="mx-2" [innerHTML]="question.option4" style="overflow-wrap: break-word;"></span>
+                        </p>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+                
+                <div class="row mt-2">
+                    <p><b>Answer :</b><span class="mx-2" [innerHTML]="question.answer" style="overflow-wrap: break-word;"></span></p>
+                    
+                </div>
+                <button class="btn btn-primary btn-sm mx-2" [routerLink]="'/admin/update-question/'+question.quesId+'/'+qid+'/'+qtitle">Update</button>
+                <button class="btn btn-dark btn-sm mx-2" (click)="deleteQuestion(question.quesId)">Delete</button>
+            </div>
+        </mat-card-content>
+    
+    </mat-card>
+
+</div>

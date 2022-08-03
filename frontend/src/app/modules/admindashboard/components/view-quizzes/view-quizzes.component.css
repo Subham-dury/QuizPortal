@@ -1,0 +1,17 @@
+.quizimg {
+    background-image: url("../../../../../assets/quiz.png");
+    background-size: cover;
+}
+
+button{
+    padding: 8px;
+    
+}
+
+.active{
+    background-color: #004d46;
+}
+
+.inactive {
+    background-color: #611f1f;
+}

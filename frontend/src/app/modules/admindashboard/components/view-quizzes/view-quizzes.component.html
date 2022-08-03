@@ -1,0 +1,53 @@
+<div class="container" style="max-height: 85vh; overflow-y:scroll;">
+  <mat-card *ngFor="let quiz of quizzes" class="mb-2" >
+    <mat-card-header>
+      <div mat-card-avatar class="quizimg"></div>
+      <mat-card-title>
+        {{quiz.title}}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{quiz.category.title}}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><b>Description : </b>{{quiz.description}}</p>
+    </mat-card-content>
+    <mat-card-actions class="mx-2">
+      <div class="bootstrap-wrapper">
+        <div class="row">
+          <div class="col-md-8">
+            <button type="button" class="btn btn-secondary btn-sm mx-2 my-2">
+              Max marks : {{quiz.maxmarks}}
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm mx-2 my-2">
+              No of Questions : {{quiz.numberOfQuestions}}
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm mx-2 my-2">
+              Attempts : 5
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm mx-2 my-2" [ngClass]="quiz.active ? 'active':'inactive'">
+              Status : {{quiz.active ? 'active' : 'inactive'}}
+            </button>
+          </div>
+          <div class="col-md-4">
+           
+            <button type="button" class="btn btn-dark btn-sm mx-2 my-2" [routerLink]="'/admin/view-questions/'+quiz.qid+'/'+quiz.title">
+              View Questions
+            </button>
+            <button type="button" class="btn btn-primary btn-sm mx-2 my-2" [routerLink]="'/admin/update-quiz/'+quiz.qid">
+              Update
+            </button>
+            <button type="button" class="btn btn-danger btn-sm mx-2 my-2" (click)="deleteQuiz(quiz.qid)">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+  <div class="container text-center my-3">
+    <button type="button" class="btn btn-dark btn-sm" routerLink="/admin/add-quiz">
+      Add new quiz
+    </button>
+  </div>
+</div>

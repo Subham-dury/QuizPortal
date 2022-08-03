@@ -1,0 +1,31 @@
+<div class="container" style="max-height: 85vh; overflow-y: scroll;" *ngIf="(quizzes | keyvalue)?.length">
+    <h2>Available Quizzes</h2>
+    <div class="row my-1" >
+        <div class="col-md-5" *ngFor="let quiz of quizzes">
+            <mat-card class="my-1" style="height: 180px;">
+                <mat-card-header>
+                    <div mat-card-avatar class="quizimg mb-1"></div>
+                    <mat-card-title>{{quiz.title}}</mat-card-title>
+                    <mat-card-subtitle>{{quiz.category.title}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content class="mt-1">
+                    <p class="truncate">{{quiz.description}}</p>
+                </mat-card-content>
+                <mat-card-actions class="my-1">
+                    <button type="button" class="btn btn-primary btn-sm mx-1">View</button>
+                    <button type="button" class="btn btn-dark btn-sm mx-1" [routerLink]="'/user/instruction/'+quiz.qid">Start</button>
+                    <button type="button" class="btn btn-secondary btn-sm mx-1">Question : {{quiz.numberOfQuestions}}</button>
+                    <button type="button" class="btn btn-secondary btn-sm">Marks : {{quiz.maxmarks}}</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+   
+</div>
+<div class="container" *ngIf="!(quizzes | keyvalue)?.length">
+    <div class="row">
+        <mat-card>
+            <mat-card-title>No quizzes available in this category</mat-card-title>
+        </mat-card>
+    </div>
+</div>

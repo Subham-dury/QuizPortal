@@ -1,0 +1,38 @@
+<div class="container">
+    <h2>Categories</h2>
+    <div class="row my-1">
+        <div class="col-md-4" *ngFor="let category of categories">
+            <mat-card class="my-1" style="height: 150px;">
+                <mat-card-header>
+                    <div mat-card-avatar class="categoryimg mb-2"></div>
+                    <mat-card-title>{{category.title}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="mt-2 d-flex justify-content-center flex-column">
+                    <p class="truncate">{{category.description}}</p>
+                    <button type="button" class="btn btn-primary btn-sm mx-1" [routerLink]="'/user/quiz/'+category.cid">View</button>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <h2>Quizzes</h2>
+    <div class="row my-1">
+        <div class="col-md-4" *ngFor="let quiz of quizzes">
+            <mat-card class="my-1" style="height: 180px;">
+                <mat-card-header>
+                    <div mat-card-avatar class="quizimg mb-1"></div>
+                    <mat-card-title>{{quiz.title}}</mat-card-title>
+                    <mat-card-subtitle>{{quiz.category.title}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content class="mt-1">
+                    <p class="truncate">{{quiz.description}}</p>
+                </mat-card-content>
+                <mat-card-actions class="my-1">
+                    <button type="button" class="btn btn-primary btn-sm mx-1">View</button>
+                    <button type="button" class="btn btn-dark btn-sm mx-1" [routerLink]="'/user/instruction/'+quiz.qid">Start</button>
+                    <button type="button" class="btn btn-secondary btn-sm mx-1">Question : {{quiz.numberOfQuestions}}</button>
+                    <button type="button" class="btn btn-secondary btn-sm">Marks : {{quiz.maxmarks}}</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

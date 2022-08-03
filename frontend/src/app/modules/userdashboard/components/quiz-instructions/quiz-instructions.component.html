@@ -1,0 +1,49 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card>
+                    <mat-card-header class="d-flex justify-content-between">
+                         <mat-card-title>
+                                {{quiz.title}}
+                            </mat-card-title>
+                            <mat-card-subtitle>
+                                {{quiz.category.title}}
+                            </mat-card-subtitle>
+                            <div>
+                                <button type="button" class="btn btn-dark btn-sm mx-1" [routerLink]="'/user'">Home</button>
+                                <button type="button" class="btn btn-secondary btn-sm mx-1" [routerLink]="'/user/quiz/'+quiz.category.cid">Quiz List</button>
+                            </div>
+                    </mat-card-header>
+                    
+                    <mat-card-content class="mx-3">
+                        <h2>Please the instructions carefully</h2>
+                        <h3>About the quiz</h3>
+                        <ul>
+                            <li>This quiz is for practice purpose.</li>
+                            <li>There are <b>{{quiz.numberOfQuestions}}</b> questions.</li>
+                            <li>Each question carries <b>{{quiz.maxmarks/quiz.numberOfQuestions}}</b> marks. No negative
+                                marking.</li>
+                            <li>Total time : <b>{{quiz.numberOfQuestions * 2}} Minutes.</b></li>
+                            <li>This quiz can be attempted multiple times.</li>
+                        </ul>
+                        <mat-divider></mat-divider>
+                        <h3 class="mt-2">How to attempt the quiz</h3>
+                        <ul>
+                            <li>Click <b>Start quiz</b> button to start the quiz.</li>
+                            <li>Timer will start when Start test button is clicked.</li>
+                            <li>Test can't be resumed if interrupted due to some reason.</li>
+                            <li>Use scroll to see the questions.</li>
+                            <li>Click sub,it quiz button to end the test or the test will end automatically when the
+                                timer ends.</li>
+                            <li>Report of the test will be generated at the end of the quiz.</li>
+                        </ul>
+                    </mat-card-content>
+                    <mat-card-actions class="text-center">
+                        <button type="button" class="btn btn-primary mx-1" (click)="openConfirmDialog()">Start quiz</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

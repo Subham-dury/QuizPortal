@@ -1,0 +1,77 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Update Question Form</mat-card-title>
+        <mat-card-subtitle>Topic - {{qtitle}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <form (ngSubmit)="updateQuestion()" #addquestionform="ngForm">
+                        <mat-form-field style="width: 100%" appearance="outline">
+                            <mat-label>Question</mat-label>
+                            <textarea matInput placeholder="Enter the description" rows="3" name="content" 
+                               [(ngModel)]="question.content" required></textarea>
+                        </mat-form-field>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field style="width: 100%" appearance="outline">
+                                    <mat-label>Option 1</mat-label>
+                                    <input type="text" name="option1" matInput #option1
+                                        placeholder="Enter option 1" [(ngModel)]="question.option1" required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field style="width: 100%" appearance="outline">
+                                    <mat-label>Option 2</mat-label>
+                                    <input type="text" name="option2" matInput #option2
+                                        placeholder="Enter option 2" [(ngModel)]="question.option2" required />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field style="width: 100%" appearance="outline">
+                                    <mat-label>Option 3</mat-label>
+                                    <input type="text" name="option3" matInput #option3
+                                        placeholder="Enter option 3" [(ngModel)]="question.option3" required />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field style="width: 100%" appearance="outline">
+                                    <mat-label>Option 4</mat-label>
+                                    <input type="text" name="option4" matInput #option4
+                                        placeholder="Enter option 4" [(ngModel)]="question.option4" required />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="my-4">Select the correct option from the dropdown</div>
+                            </div>
+                            <div class="col-md-4">
+                                
+                                <mat-form-field appearance="outline" style="width: 100%">
+                                    <mat-label>Select correct option</mat-label>
+                                    <mat-select name="answer" [(ngModel)]="question.answer" required>
+                                        <mat-option *ngFor="let option of [option1.value, option2.value, option3.value, option4.value]" [value]="option" >
+                                            {{option}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            
+                        </div>
+                        <div class="container" class="button-container my-3">
+                            <button type="button" class="btn btn-primary btn-sm" [routerLink]="'/admin/view-questions/'+qid+'/'+qtitle">Back</button>
+                            <button type="button submit" class="btn btn-dark btn-sm"
+                                [disabled]="!addquestionform.valid">Add</button>
+                            <button type="button" class="btn btn-secondary btn-sm" (click)="clearform()">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

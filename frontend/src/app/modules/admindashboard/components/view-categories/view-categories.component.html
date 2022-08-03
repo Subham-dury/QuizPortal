@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-list>
+       <mat-list-item *ngFor="let category of categories">
+            <mat-icon mat-list-icon>category</mat-icon>
+            <div mat-line>{{category.title}}</div>
+            <div mat-line class="mt-1">{{category.description}}</div>
+            <button class="btn btn-primary btn-sm mx-2" [routerLink]="'/admin/update-category/'+category.cid">
+                <mat-icon>edit</mat-icon>
+              </button>
+            <button class="btn btn-danger btn-sm mx-2" (click)="deleteCategory(category.cid)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            <mat-divider></mat-divider>
+        </mat-list-item>
+    </mat-list>
+    
+</mat-card>
+<div class="container my-3 button-container">
+  <button type="button submit" class="btn btn-dark" [routerLink]="['/admin/add-category']" routerLinkActive="router-link-active" >
+    Add new category
+  </button>
+</div>
